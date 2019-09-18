@@ -21,7 +21,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Property.GET_ALL_QUERY_NAME, query = "SELECT p FROM Property p order by p.propertyId desc")})
+    @NamedQuery(name = Property.GET_ALL_QUERY_NAME, query = "SELECT p FROM Property p")})
 
 public class Property implements Serializable {
 
