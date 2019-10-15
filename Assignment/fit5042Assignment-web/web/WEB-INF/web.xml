@@ -36,14 +36,6 @@
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
-        <auth-constraint>
-            <description>adminConstraint</description>
-            <role-name>admin</role-name>
-        </auth-constraint>
-        <user-data-constraint>
-            <description>adminConstraint</description>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
     </security-constraint>
     <login-config>
         <auth-method>FORM</auth-method>

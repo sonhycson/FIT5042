@@ -7,15 +7,115 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: 'yyyy-mm-dd',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "1960:2019"
+                });
+            });
+        </script>
     </head>
     <body>
         <center>
             <ui:include src="shared.xhtml"/>
         </center> 
-        <div>TODO write content</div>
+        <div class="container">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-brand">
+                    #{titleController.pageTitle} -Register
+                </div>
+            </div>
+            <div>
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Register for an User"/></h1>
+                        <table class="table table-bordered ">
+                            <tr>
+                                <td width ="200">
+                                    <h:outputLabel value="Username" for="username" />
+                                </td>
+                                <td width = "400">
+                                    <h:inputText id="username" value="#{appUser.username}" title="username" />
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td >
+                                    <h:outputLabel value="password" for="streetAddress" />
+                                </td>
+                                <td width = "400">
+                                    <h:inputText id="password" value="#{appUser.password}" title="streetAddress" />
+                                </td>
+                            </tr >
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Date of Birth" for="dob" />
+                                </td>
+                                <td width = "400">
+                                    <h:inputText styleClass="datepicker" value="#{appUser.dob}" title="dateOfBirth">
+                                     <f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>   
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Gender" for="gender" />
+                                </td>
+                                <td width = "400">
+<!--                                    <h:inputText id="state" value="#{property.state}" title="state" />-->
+<!--                                    <h:selectOneMenu value="#{appUser.gender}">
+                                        <f:selectItem itemValue="Female" itemLabel="Female" />
+                                        <f:selectItem itemValue="Male" itemLabel="Male" />
+                                    </h:selectOneMenu>-->
+                                    <h:selectOneMenu value="#{appUser.gender}">
+                                        <f:selectItem itemValue="Male" itemLabel="Male" />
+                                        <f:selectItem itemValue="Female" itemLabel="Female" />
+                                    </h:selectOneMenu>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Phone Number" for="phone number" />
+                                </td>
+                                <td width = "400">
+                                    <h:inputText id="phoneNo" value="#{appUser.phoneno}" title="postcode" />
+                                </td>
+
+                            </tr>
+
+                            <tr width = "400">
+                                <td height="30">
+
+                                </td>
+                                <td>
+
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <h:commandButton id="submit" value="Submit" action="#{registerUser.addUser(appUser)}" class="btn btn-primary" />
+                        <h:commandButton id="close" value="Close" action="/admin/admin.xhtml" class="btn btn-primary" />
+
+                    </h:form>
+
+                </f:view>
+            </div>
+        </div>
     </body>
 </html>

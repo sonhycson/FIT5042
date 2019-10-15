@@ -6,12 +6,61 @@
     <h:head>
         <title>Home Page of Animals</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
-       <ui:composition template="shared.xhtml">
-    	</ui:composition>
+        <ui:composition template="shared.xhtml">
+        </ui:composition>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>The Monash Native Animal</h1>      
+                <p>The Monash Native Animal is a website that contains all the information about animals lived in Australia</p>
+            </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+            </ol>
+
+                 <!-- Wrapper for slides -->
+                 <div class="carousel-inner">
+                 <div class="item active">
+                    <img src="images/lion.jpg" alt="Lion"/>
+                </div>
+
+                <div class="item">
+                    <img src="images/cheater.jpg" alt="Cheater"/>
+                </div>
+
+                <div class="item">
+                    <img src="images/eagle.jpg" alt="Eagle"/>
+                </div>
+
+                <div class="item">
+                    <img src="images/hamstar.jpg" alt="Hamstar"/>
+                </div>
+
+                <div class="item">
+                    <img src="images/horse.jpg" alt="Horse"/>
+                </div>
+
+                <div class="item">
+                    <img src="images/raccoon.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+
+
     </h:body>
-    
-    
+
+
 </html>
 

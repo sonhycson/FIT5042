@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--                <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Cache-Control" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>-->
+    </head>
+    <body>
+        <ui:composition template="http://localhost:8080/fit5042Assignment-web/shared1.xhtml">
+    	</ui:composition>
+        
+        <div class="container">
+                <div class="navbar-brand">
+                    Monash Native Animals - User Detail
+                </div>
+            <h:form id="MyForm">
+                <table class="table table-bordered ">
+                    <tr>
+                        <td width ="150" valign="top">Id:</td>
+
+                        <td valign="bottom">
+                            <h:outputLabel id = "Id" >#{userController.user.id}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="top">Email: </td>
+
+                        <td valign="bottom">
+                            <h:outputLabel id = "userEmail" >#{userController.user.email}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="top">Gender: </td>
+
+                        <td valign="bottom">
+                            <h:outputLabel id = "userGender" >#{userController.user.gender}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="top">Mobile Number: </td>
+
+                        <td valign="bottom">
+                            <h:outputLabel id = "Price" >
+                                #{userController.user.phoneno}
+                            </h:outputLabel>    
+
+                        </td>
+                    </tr>
+
+                </table>   
+                <h:commandButton id="Close" value="Cancel" action="userPage.xhtml" class="btn btn-primary" />
+
+            </h:form>
+        </div>
+    </body>
+</html>

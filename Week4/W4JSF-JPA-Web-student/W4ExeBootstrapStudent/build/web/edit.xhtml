@@ -70,7 +70,7 @@
                 </table>
 
                 <h:commandButton id="save" value="Save" action="#{propertyManagedBean.editProperty(propertyController.property)}"  class="btn btn-primary" >
-                    <f:param name="propertyID" value="#{propertyController.propertyId+1}"/>
+                    <f:param name="propertyID" value="#{propertyController.propertyId + 1}"/>
                 </h:commandButton>
                 <h:commandButton id="Close" value="Close" action="index.xhtml" class="btn btn-primary" >
                     <f:param name="propertyID" value="#{propertyController.propertyId + 1}"/>

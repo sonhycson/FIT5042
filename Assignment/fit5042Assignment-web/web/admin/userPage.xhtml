@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>DataTable</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Cache-Control" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"></link>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script>
+                $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+        </script>
+    </head>
+    <body>  
+         <ui:composition template="http://localhost:8080/fit5042Assignment-web/shared1.xhtml">
+    	</ui:composition>
+        <div class="container">
+        <h1>Administration Area</h1>
+        <h:form>
+            <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ui:repeat id="Myrepeat" value="#{userApplication.users}"  var="users" varStatus="status"> 
+
+                        <tr> 
+                            <td>
+                                <h:outputText value="#{userApplication.users.get(status.index).usertype}" id="outUsertype" /> 
+                            </td>
+                            <td> 
+                                <h:outputText id="outUsername" value="#{userApplication.users.get(status.index).username}"/>
+                            </td>
+                            <td>
+                                <h:outputText id="outEmail" value="#{userApplication.users.get(status.index).email}"></h:outputText>
+                            </td>
+                             <td>
+                                <h:outputText id="outDoB" value="#{userApplication.users.get(status.index).dob}"></h:outputText>
+                            </td>
+                             <td>
+                                <h:outputText id="outGender" value="#{userApplication.users.get(status.index).gender}"></h:outputText>
+                            </td>
+                             <td>
+                                <h:outputText id="outPhoneNo" value="#{userApplication.users.get(status.index).phoneno}"></h:outputText>
+                            </td>
+                            <td>
+                                <h:commandLink value="View | " action="userDetail.xhtml">
+                                    <f:param name="userId" value="#{status.index + 1}"/>
+
+                                </h:commandLink>
+                                <h:commandLink value="Edit | " action="editUser.xhtml">
+                                    <f:param name="userId" value="#{status.index + 1}"/>
+                                </h:commandLink>
+
+                                <h:commandLink value="Delete" action="#{removeUser.removeUser(userApplication.users.get(status.index).id)}">
+                                </h:commandLink>
+
+                                <h:outputText value=" "/>
+                            </td>
+                        </tr> 
+                    </ui:repeat> 
+            </tbody>
+        </table>
+        </h:form>
+        </div>
+    </body>
+</html>

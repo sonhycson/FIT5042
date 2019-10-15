@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+    </head>
+    <body>
+        <ui:composition>
+            <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Monash Animal</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="http://localhost:8080/fit5042Assignment-web/admin/admin.xhtml">Home</a></li>  
+              <li><a href="http://localhost:8080/fit5042Assignment-web/admin/about.xhtml">About</a></li>
+              <li><a href="http://localhost:8080/fit5042Assignment-web/admin/userPage.xhtml">Users</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a><span class="glyphicon glyphicon-user"></span>Welcome #{appUser.getCurrentUsername()}</a></li>  
+              <li><a href="http://localhost:8080/fit5042Assignment-web/register.xhtml"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="http://localhost:8080/fit5042Assignment-web/logoutPage.xhtml"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+            </ul>
+          </div>
+                
+            </nav>
+         </ui:composition>
+    </body>
+</html>

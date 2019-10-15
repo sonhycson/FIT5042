@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+//            $(function () {
+//                $("#MyForm:datepicker").datepicker();
+//            });
+            $(document).ready(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "1960:2019"
+                });
+            });
+        </script>
+    </head>
+    <ui:composition template="http://localhost:8080/fit5042Assignment-web/shared1.xhtml">
+    </ui:composition>
+    <body>
+        <div></div>
+        <div class="container">
+            <h:form id="MyForm">
+                <table class="table table-bordered " style="width:100%;">
+                    <tr>
+                        <td width ="150" valign="mid">Id:</td>
+
+                        <td valign="mid" style="height:100px">
+                            <h:outputLabel id = "Id" >#{userController.user.id}</h:outputLabel>    
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width ="150" valign="mid">Username:</td>
+
+                        <td valign="mid">
+                            <h:outputLabel id = "username" >#{userController.user.username}</h:outputLabel>    
+                        </td>
+                    </tr>
+                      <tr>
+                        <td width ="150" valign="mid">Role:</td>
+
+                        <td valign="mid">
+                            <h:outputLabel id = "userRole" >#{userController.user.usertype}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="mid">Gender: </td>
+                        <!--                        the value below is for display -->
+                        <td valign="mid">
+<!--                            <h:selectOneRadio value="#{userController.user.gender}" required="true"
+                                              requiredMessage="Please select an gender">
+                                <f:selectItem itemValue="Male" itemLabel="Male&nbsp;" itemDisabled="false" />
+
+                                <f:selectItem itemValue="Female" itemLabel=" Female " itemDisabled="false"/>
+                            </h:selectOneRadio>-->
+
+                            <h:selectOneMenu value="#{userController.user.gender}">
+                                <f:selectItem itemValue="Male" itemLabel="Male" />
+                                <f:selectItem itemValue="Female" itemLabel="Female" />
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width ="100" valign="mid">Email: </td>
+
+                        <td valign="mid">
+                            <h:inputText id = "userEmail" value="#{userController.user.email}"  required="true"
+                                         requiredMessage="Please enter Email. "></h:inputText>    
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width ="100" valign="mid">Phone Number: </td>
+
+                        <td valign="mid">
+                            <h:inputText id = "userPhoneNo" value="#{userController.user.phoneno}"  required="true"
+                                         requiredMessage="Please enter Phone Number. "></h:inputText>    
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width ="100" valign="mid">Date of Birth: </td>
+
+                        <td valign="mid">
+<!--                            <h:inputText value="#{userController.user.dob}" styleClass="form-control datepicker" required="true" readonly ="true"
+                                         requiredMessage="Please enter Date of Birth. ">
+                                <f:convertDateTime pattern="yyyy-MM-dd"/>
+                            </h:inputText>-->
+                            <!--                                                        <input id = "datepicker" value="#userController.userDobString}"  required="true" readonly ="true"
+                                                                                           requiredMessage="Please enter Date of Birth. " ></input>-->
+                            <h:inputText styleClass="datepicker" value="#{userController.user.dob}"  required="true" 
+                                         requiredMessage="Please enter Date of Birth. ">
+                                <f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>    
+   <!--                            <input id = "datepicker" value="#{userController.user.dob}" required="true" readonly="true"
+                                            requiredMessage="Please enter Date Of Birth">  
+                                   <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                               </input>-->
+                        </td>
+                    </tr>
+                    <!--                    <tr>
+                                            <td width ="100" valign="top">No of Bedrooms: </td>
+                    
+                                            <td valign="bottom">
+                                                <h:inputText id = "No-Bedrooms" value="#{propertyController.property.numberOfBedrooms}"  required="true"
+                                                             validatorMessage="Number of rooms must be greater than 0"
+                                                             requiredMessage="Please enter number of rooms. "></h:inputText>    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width ="100" valign="top">Price: </td>
+                    
+                                            <td valign="bottom">
+                                                <h:inputText id = "Price" value="#{propertyController.property.price}"  required="true"
+                                                             validatorMessage="Please enter a value greater than 0.0"
+                                                             requiredMessage="Please enter a price. ">
+                    
+                                                    <f:convertNumber currencyCode="AUD" type="currency" />
+                                                </h:inputText>    
+                    
+                                            </td>
+                                        </tr>-->
+
+                </table>
+
+                <h:commandButton id="save" value="Save" action="#{userManagedBean.editUser(userController.user)}"  class="btn btn-primary" >
+                    <f:param name="userId" value="#{userController.userId + 1}"/>
+                </h:commandButton>
+                <h:commandButton id="Close" value="Close" action="userPage.xhtml" class="btn btn-primary" >
+                    <f:param name="userId" value="#{userController.userId + 1}"/>
+                </h:commandButton> 
+            </h:form>
+        </div>
+    </body>
+</html>

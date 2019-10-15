@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Cache-Control" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>-->
+    </head>
+    <body>
+         <center>
+            <ui:include src="shared.xhtml"/>
+        </center> 
+        <div class="container">
+            <div class="jumbotron">
+                <h1>The Monash Native Animal</h1>      
+                <h2>You are Logging out</h2>
+                <h2 action="#{logout.logoutMethod()}">You are going to be redirected to home page </h2>         
+            </div>
+        </div>
+    </body>
+</html>
